@@ -17,6 +17,9 @@ jobs:
     - name: Install dependencies
         run: pip install -r requirements.txt
     - name: Send Message
+      env:
+        TARGET_REPO_NAME: ${{ secrets.RP }}
+        DISCORD_WEBHOOK_URL: ${{ secrets.WH_URL }}
       run: |
         git clone https://github.com/floorp-projects/l10n-central
         ./mach bootstrap
