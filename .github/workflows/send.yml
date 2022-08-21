@@ -8,15 +8,16 @@ jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Check out
+      uses: actions/checkout@v2
     - name: Setup Python
-    - uses: actions/setup-python@v4.2.0
+      uses: actions/setup-python@v4.2.0
       with:
         python-version: "3.8"
         architecture: "x64"
     - name: Install dependencies
       run: pip install -r requirements.txt
-    - name: Send Message
+    - name: Run script
       env:
         TARGET_REPO_NAME: ${{ secrets.RP }}
         DISCORD_WEBHOOK_URL: ${{ secrets.WH_URL }}
