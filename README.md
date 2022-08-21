@@ -4,7 +4,7 @@
 
 ## Use
 
-Forkして`.github/workflow/send.yml`を任意の時刻に変更し、Settingsで環境変数を [#Dev](#dev) のように設定します。
+Forkして`.github/workflow/send.yml`を任意の時刻に変更し、Settingsでシークレットの`WH_URL`と`RP`に登録します
 
 ##  Dev
 
