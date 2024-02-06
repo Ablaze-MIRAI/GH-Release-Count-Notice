@@ -1,6 +1,6 @@
 # GH-Release-Count-Notice
 
-最新リリースのアセットダウンロード数をDiscord Webhookで通知します
+最新リリースのアセットダウンロード数をDiscord Webhookで通知します。
 
 ## Use
 
