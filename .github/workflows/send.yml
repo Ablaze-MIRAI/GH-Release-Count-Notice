@@ -24,3 +24,18 @@ jobs:
         DISCORD_WEBHOOK_URL: ${{ secrets.WH_URL }}
       run: |
         python3 main.py
+  commit:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.USER_GRCN_TOKEN }}
+    - name: write date to file & commit
+      run: |
+        date +"%Y%m%d%I%M%S" > date.txt
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        git add .
+        git commit -m "Send Release count to Discord at $(date +'%Y%m%d%I%M%S')"
+        git push
