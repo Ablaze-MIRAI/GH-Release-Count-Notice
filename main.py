@@ -29,7 +29,12 @@ if os.getenv("TARGET_REPO_NAME") is None:
     print("Error: Repo Name not found")
     exit
 
-gh_response = requests.get(f"https://api.github.com/repos/{os.getenv('TARGET_REPO_NAME')}/releases/latest", headers={"Accept": "application/vnd.github.v3+json"}).json();
+gh_response = requests.get(
+        f"https://api.github.com/repos/{os.getenv('TARGET_REPO_NAME')}/releases/latest",
+        headers={
+            "Accept": "application/vnd.github.v3+json", "Authorization": f"token {os.getenv('PERSONAL_ACCESS_TOKEN')}"
+        },
+    ).json()
 
 if not isset(gh_response, "assets"):
     print(f"Response Error: {gh_response['message']}")
